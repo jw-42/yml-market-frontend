@@ -7,6 +7,7 @@ import {
 } from '@vkontakte/vk-mini-apps-router';
 
 import { VIEW, MODALS, DEFAULT_VIEW } from '@app/router/model';
+import { GROUPS_VIEW, HELP_VIEW } from './model/panels';
 
 export const AppRoutes = RoutesConfig.create([
   createView(VIEW.DEFAULT, [
@@ -15,6 +16,12 @@ export const AppRoutes = RoutesConfig.create([
       createModal(MODALS.DETAIL, "/detail/:section", ["section"] as const)
     ])
   ]),
+  createView(VIEW.GROUPS, [
+    createPanel(GROUPS_VIEW.DEFAULT, "/groups")
+  ]),
+  createView(VIEW.HELP, [
+    createPanel(HELP_VIEW.DEFAULT, "/help")
+  ])
 ]);
 
 export const AppRouter = createHashRouter(AppRoutes.getRoutes());
