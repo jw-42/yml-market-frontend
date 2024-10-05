@@ -1,0 +1,1 @@
+export { BaseInfo } from './ui';
