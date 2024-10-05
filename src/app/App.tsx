@@ -1,11 +1,11 @@
 import { View, SplitLayout, SplitCol, Epic } from '@vkontakte/vkui';
 import { useActiveVkuiLocation, useGetPanelForView } from '@vkontakte/vk-mini-apps-router';
-
-import { VIEW, DEFAULT_VIEW } from '@app/router/model';
-import { Homepage } from '@pages/homepage';
 import { useEffect } from 'react';
+
+import { VIEW, DEFAULT_VIEW, GROUPS_VIEW, HELP_VIEW } from '@app/router/model';
 import { Tabbar } from '@shared/ui/tabbar';
-import { GROUPS_VIEW, HELP_VIEW } from './router/model/panels';
+
+import { Homepage } from '@pages/homepage';
 import { Communities } from '@pages/communities';
 import { Help } from '@pages/help';
 
