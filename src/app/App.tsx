@@ -4,6 +4,10 @@ import { useActiveVkuiLocation, useGetPanelForView } from '@vkontakte/vk-mini-ap
 import { VIEW, DEFAULT_VIEW } from '@app/router/model';
 import { Homepage } from '@pages/homepage';
 import { useEffect } from 'react';
+import { Tabbar } from '@shared/ui/tabbar';
+import { GROUPS_VIEW, HELP_VIEW } from './router/model/panels';
+import { Communities } from '@pages/communities';
+import { Help } from '@pages/help';
 
 export const App = () => {
   const {view: activeView = VIEW.DEFAULT } = useActiveVkuiLocation();
@@ -16,9 +20,17 @@ export const App = () => {
   return (
     <SplitLayout>
       <SplitCol>
-        <Epic activeStory={activeView || VIEW.DEFAULT}>
+        <Epic activeStory={activeView || VIEW.DEFAULT} tabbar={<Tabbar/>}>
           <View id={VIEW.DEFAULT} activePanel={activePanel || DEFAULT_VIEW.HOMEPAGE}>
             <Homepage id={DEFAULT_VIEW.HOMEPAGE} />
+          </View>
+
+          <View id={VIEW.GROUPS} activePanel={activePanel || GROUPS_VIEW.DEFAULT}>
+            <Communities id={GROUPS_VIEW.DEFAULT} />
+          </View>
+
+          <View id={VIEW.HELP} activePanel={activePanel || HELP_VIEW.DEFAULT}>
+            <Help id={HELP_VIEW.DEFAULT} />
           </View>
         </Epic>
       </SplitCol>
