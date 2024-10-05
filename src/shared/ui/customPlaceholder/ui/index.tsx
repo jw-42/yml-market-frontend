@@ -1,7 +1,7 @@
 import { Placeholder } from "@vkontakte/vkui";
 import { ICustomPlaceholder } from "../model/type";
 import { useEffect, useState } from "react";
-import { Icon56NewsfeedOutline } from "@vkontakte/icons";
+import { Icon56HourglassOutline, Icon56NewsfeedOutline } from "@vkontakte/icons";
 
 export const CustomPlaceholder = (props: ICustomPlaceholder) => {
 
@@ -11,6 +11,12 @@ export const CustomPlaceholder = (props: ICustomPlaceholder) => {
 
   useEffect(() => {
     switch (props.type) {
+      case "develop":
+        setIcon(<Icon56HourglassOutline/>);
+        setTitle("Этот раздел ещё в разработке");
+        setDescription("Попробуйте заглянуть сюда позже");
+        break;
+
       default:
         setIcon(<Icon56NewsfeedOutline/>);
         setTitle("Здесь пока ничего нет");
