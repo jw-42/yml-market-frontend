@@ -6,6 +6,7 @@ import { VIEW, DEFAULT_VIEW, GROUPS_VIEW, HELP_VIEW } from '@app/router/model';
 import { Tabbar } from '@shared/ui/tabbar';
 
 import { Homepage } from '@pages/homepage';
+import { Detail } from '@pages/detail';
 import { Communities } from '@pages/communities';
 import { Help } from '@pages/help';
 
@@ -23,6 +24,7 @@ export const App = () => {
         <Epic activeStory={activeView || VIEW.DEFAULT} tabbar={<Tabbar/>}>
           <View id={VIEW.DEFAULT} activePanel={activePanel || DEFAULT_VIEW.HOMEPAGE}>
             <Homepage id={DEFAULT_VIEW.HOMEPAGE} />
+            <Detail id={DEFAULT_VIEW.DETAIL} />
           </View>
 
           <View id={VIEW.GROUPS} activePanel={activePanel || GROUPS_VIEW.DEFAULT}>
