@@ -44,6 +44,4 @@ jobs:
       - name: Deploy on VK Mini Apps
         env:
           ACCESS_TOKEN_SECRET: ${{ secrets.VKMA_ACCESS_TOKEN }}
-          TEST_VAR: ${{ secrets.TEST }}
-        run: env TEST_ENV_VAR="$TEST_VAR echo $TEST_ENV_VAR"
         run: env MINI_APPS_ENVIRONMENT="dev" MINI_APPS_ACCESS_TOKEN="$ACCESS_TOKEN_SECRET" npm run deploy
