@@ -1,0 +1,21 @@
+name: ESLint test
+
+on:
+  pull_request:
+  push:
+    branches:
+      [ master, develop ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Get repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check application
+        run: npm run lint
