@@ -24,7 +24,7 @@ export class YMLParser {
     return (this.file) ? this.file.type === "text/xml" : false;
   }
 
-  async xml2obj() {
+  xml2obj() {
     return new Promise<XMLElement>((resolve, reject) => {
       const parser = new SAXParser(true, { trim: true, normalize: true });
 
@@ -100,7 +100,12 @@ export class YMLParser {
 
       reader.onerror = (event: ProgressEvent<FileReader>) => {
         console.error("Can't read this file", event.target?.error);
-        reject(event.target?.error);
+      }
+
+      if (this.file.type.includes("xml") || this.file.type.includes("text")) {
+        reader.readAsText(this.file);
+      } else {
+        reject("File type is invalid");
       }
 
     })

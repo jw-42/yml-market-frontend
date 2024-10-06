@@ -1,12 +1,15 @@
 import { RootState } from '@app/store';
+import { XMLElement } from '@shared/types/parser';
 import { DetailCell } from '@shared/ui/detailCell';
 import { DetailLayoutGroup } from '@shared/ui/detailLayoutGroup';
 import { YMLParser } from '@shared/utils';
 import { Group, Header, Spacing, Separator, Div, Button } from '@vkontakte/vkui';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 export const FileDetails = () => {
+
+  const [obj, setObj] = useState<XMLElement|null>(null);
 
   const { currentFile } = useSelector((state: RootState) => state.storage);
 
@@ -14,8 +17,10 @@ export const FileDetails = () => {
     if (currentFile) {
       const parser = new YMLParser(currentFile);
       
-      // validation
-      console.log(parser.getFileSize())
+      console.log("pre parser.xml2obj()");
+      parser.xml2obj()
+        .then((res) => setObj(res))
+        .catch((error) => console.error(error))
     }
   }, [ currentFile ]);
 
@@ -25,7 +30,7 @@ export const FileDetails = () => {
     }>
       <DetailLayoutGroup>
         <DetailCell header='Всего товаров' children={'42 шт.'} />
-        <DetailCell header='Из них доступно' children={'1 шт.'}/>
+        <DetailCell header='Из них доступно' children={'1 шт.'} />
       </DetailLayoutGroup>
 
       <Spacing>
