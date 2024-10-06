@@ -1,0 +1,47 @@
+name: Deployment
+
+on:
+  pull_request:
+  push:
+    branches:
+      [ develop ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest    
+    steps:
+      - name: Get repository
+        uses: actions/checkout@v4
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: node-modules-${{ hashFiles('**/package.json') }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Check application
+        run: npm run lint
+  
+  deploy:
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - name: Deploy application
+        uses: actions/checkout@v4
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: node-modules-${{ hashFiles('**/package.json') }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Deploy on VK Mini Apps
+        env:
+          ACCESS_TOKEN_SECRET: ${{ secrets.VKMA_ACCESS_TOKEN }}
+        run: env MINI_APPS_ENVIRONMENT=dev MINI_APPS_ACCESS_TOKEN="$ACCESS_TOKEN_SECRET" npm run deploy
