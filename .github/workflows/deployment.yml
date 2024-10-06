@@ -41,10 +41,13 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Set ENV variable
-        env:
-          ACCESS_TOKEN_SECRET: ${{ secrets.VKMA_ACCESS_TOKEN }}
+      - name: Set MINI_APPS_ENVIRONMENT
         run: env MINI_APPS_ENVIRONMENT="dev"
 
-      - name: Print ENV variable
-        run: echo $MINI_APPS_ENVIRONMENT
+      - name: Set MINI_APPS_ENVIRONMENT
+        env:
+          ACCESS_TOKEN_SECRET: ${{ secrets.VKMA_ACCESS_TOKEN }}
+        run: env MINI_APPS_ACCESS_TOKEN="$ACCESS_TOKEN_SECRET"
+
+      - name: Deploy application
+        run: npm run deploy
