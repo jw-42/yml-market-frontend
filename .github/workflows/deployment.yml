@@ -41,13 +41,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Set MINI_APPS_ENVIRONMENT
-        run: env MINI_APPS_ENVIRONMENT="dev"
-
-      - name: Set MINI_APPS_ACCESS_TOKEN
-        env:
-          ACCESS_TOKEN_SECRET: ${{ secrets.VKMA_ACCESS_TOKEN }}
-        run: env MINI_APPS_ACCESS_TOKEN="$ACCESS_TOKEN_SECRET"
-
       - name: Deploy application
+        env:
+          MINI_APPS_ENVIRONMENT: "dev"
+          MINI_APPS_ACCESS_TOKEN: ${{ secrets.VKMA_ACCESS_TOKEN }}
         run: npm run deploy
