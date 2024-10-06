@@ -14,7 +14,9 @@ export const Homepage = (props: NavIdProps) => {
   const { currentFile } = useSelector((state: RootState) => state.storage);
 
   useEffect(() => {
-    if (currentFile) { dispatch( setFile() ) };
+    if (currentFile) {
+      dispatch( setFile() );
+    }
   }, []);
 
   return(

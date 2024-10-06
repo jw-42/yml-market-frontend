@@ -1,4 +1,6 @@
+import { ReactElement } from "react";
+
 export interface IDetailCell {
   header?: string,
-  children?: any
+  children?: ReactElement|string
 }

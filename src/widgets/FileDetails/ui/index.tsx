@@ -13,8 +13,9 @@ export const FileDetails = () => {
   useEffect(() => {
     if (currentFile) {
       const parser = new YMLParser(currentFile);
-
+      
       // validation
+      console.log(parser.getFileSize())
     }
   }, [ currentFile ]);
 

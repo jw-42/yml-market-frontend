@@ -1,11 +1,11 @@
 import { Placeholder } from "@vkontakte/vkui";
 import { ICustomPlaceholder } from "../model/type";
-import { useEffect, useState } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import { Icon56HourglassOutline, Icon56NewsfeedOutline } from "@vkontakte/icons";
 
 export const CustomPlaceholder = (props: ICustomPlaceholder) => {
 
-  const [icon, setIcon] = useState<any>();
+  const [icon, setIcon] = useState<ReactElement>();
   const [title, setTitle] = useState<string>();
   const [description, setDescription] = useState<string>();
 

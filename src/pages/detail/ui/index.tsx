@@ -17,7 +17,9 @@ export const Detail = (props: NavIdProps) => {
   const { currentFile } = useSelector((state: RootState) => state.storage);
 
   useEffect(() => {
-    if (!currentFile) { router.push(AppRoutes.default.homepage) }
+    if (!currentFile) {
+      void router.push(AppRoutes.default.homepage);
+    }
   }, [ currentFile ]);
   
   return(

@@ -8,7 +8,7 @@ import bridge from '@vkontakte/vk-bridge';
 
 export const ResizePanel = (props: IResizePanel) => {
 
-  const contentRef = useRef<any>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   const routeNavigator = useRouteNavigator();
 
