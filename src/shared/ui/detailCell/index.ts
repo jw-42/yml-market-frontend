@@ -1,0 +1,1 @@
+export { DetailCell } from './ui';
