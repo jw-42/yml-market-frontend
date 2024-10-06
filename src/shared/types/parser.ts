@@ -1,6 +1,7 @@
 export interface XMLValidator {
   categories?: XMLCategory[],
-  offers: XMLOffer[]
+  offers: XMLOffer[],
+  items?: XMLTransformOffer[]
 }
 
 export interface XMLCategory {
@@ -22,9 +23,28 @@ export interface XMLOffer {
 }
 
 export interface XMLElement {
-  value: number|string|undefined
+  name: string,
+  attributes: XMLAttribute[],
+  children: XMLElement[],
+  text?: string
 }
 
 export interface XMLTransformOffer {
-  value: number|string|undefined
+  id?: string,
+  group_id?: string,
+  name: string,
+  description: string,
+  price: number,
+  pictures: string[],
+  params?: XMLParam[]
+}
+
+export interface XMLAttribute {
+  name: string,
+  value?: string|number|object|boolean
+}
+
+export interface XMLParam {
+  name: string,
+  value: string
 }
