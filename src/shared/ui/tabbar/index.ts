@@ -1,1 +1,0 @@
-export { Tabbar } from './ui';

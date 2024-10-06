@@ -8,7 +8,7 @@ export const storageSlice = createSlice({
   name: "storage",
   initialState,
   reducers: {
-    setFile: (state, action: PayloadAction<File>) => {
+    setFile: (state, action: PayloadAction<File|undefined>) => {
       state.currentFile = action.payload;
       state.uploadStatus = undefined;
     },

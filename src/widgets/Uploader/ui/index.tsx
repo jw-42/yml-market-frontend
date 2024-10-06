@@ -1,11 +1,9 @@
-import { useRouteNavigator } from "@vkontakte/vk-mini-apps-router";
-import { FormLayoutGroup, FormItem, FormStatus, Div } from "@vkontakte/vkui";
+import { FormLayoutGroup, FormStatus, Div } from "@vkontakte/vkui";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 
 import { RootState } from "@app/store";
-import { AppRoutes } from "@app/router";
-import { UploadDropZone, UploadInputURL } from "@features/upload-file";
+import { UploadDropZone } from "@features/upload-file";
 import { setUploadStatus } from "@app/store/storageReducer";
 import { YMLParser } from "@shared/utils";
 
@@ -13,7 +11,6 @@ import { YMLParser } from "@shared/utils";
 export const Uploader = () => {
 
   const dispatch = useDispatch();
-  const router = useRouteNavigator();
 
   const { uploadStatus, currentFile } = useSelector((state: RootState) => state.storage);
 
@@ -37,8 +34,6 @@ export const Uploader = () => {
             description: "Недопустимый тип файла. Поддерживаются только форматы: .XML, .TXT"
           })
         );
-      } else {
-        router.push(AppRoutes.default.detail);
       }
     }
   }, [ currentFile ]);
@@ -52,10 +47,6 @@ export const Uploader = () => {
           </FormStatus>
         </Div>
       )}
-
-      <FormItem top="Ссылка на YML-фид">
-        <UploadInputURL/>
-      </FormItem>
 
       <UploadDropZone/>
     </FormLayoutGroup>

@@ -3,6 +3,7 @@ import vkBridge from '@vkontakte/vk-bridge';
 import { AppConfig } from './app/AppConfig.tsx';
 import { Provider } from 'react-redux';
 import { store } from '@app/store/index.ts';
+import './style.css';
 
 vkBridge.send('VKWebAppInit');
 
@@ -12,6 +13,6 @@ createRoot(document.getElementById('root')!).render(
   </Provider>
 );
 
-if (import.meta.env.MODE === 'development') {
-  import('./eruda.ts');
-}
+// if (import.meta.env.MODE === 'development') {
+//   import('./eruda.ts');
+// }

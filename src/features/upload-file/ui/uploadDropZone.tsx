@@ -1,13 +1,43 @@
-import { DropZone, Footnote, Placeholder, Spacing, File } from '@vkontakte/vkui';
+import { DropZone, Footnote, Placeholder, Spacing, File as VKUIFile } from '@vkontakte/vkui';
+import { useRouteNavigator } from '@vkontakte/vk-mini-apps-router';
 import { Icon56DocumentOutline } from '@vkontakte/icons';
-import { setFile } from '@app/store/storageReducer';
 import { useDispatch } from 'react-redux';
+
+import { AppRoutes } from '@app/router';
+import { setFile, setUploadStatus } from '@app/store/storageReducer';
+import { YMLParser } from '@shared/utils';
 
 import baseTheme from '@vkontakte/vkui-tokens/themes/vkBase/cssVars/theme';
 
 export const UploadDropZone = () => {
 
   const dispatch = useDispatch();
+  const router = useRouteNavigator();
+
+  const checkFile = (_file: File) => {
+    const parser = new YMLParser(_file);
+
+    if (!parser.hasCorrectSize()) {
+      dispatch(
+        setUploadStatus({
+          type: "error",
+          header: "Произошла ошибка",
+          description: `Допустимый размер файла — до 8 МБ (сейчас ${parser.getFileSize().toFixed(2)} МБ).`
+        })
+      );
+    } else if (!parser.hasCorrectType()) {
+      dispatch(
+        setUploadStatus({
+          type: "error",
+          header: "Недопустимый формат",
+          description: "Поддерживаются только .XML-файлы."
+        })
+      );
+    } else {
+      dispatch( setFile(_file) );
+      router.push(AppRoutes.default.detail);
+    }
+  }
 
   const onDragOverHandle = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
@@ -15,7 +45,9 @@ export const UploadDropZone = () => {
 
   const onDropHandle = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
-    dispatch( setFile(e.dataTransfer.files[0]) );
+
+    const file = e.dataTransfer.files[0];
+    checkFile(file);
   };
 
   return(
@@ -24,11 +56,11 @@ export const UploadDropZone = () => {
       <Placeholder
         icon={<Icon56DocumentOutline/>}
         action={<>
-          <File
+          <VKUIFile
             mode="secondary"
             onChange={(e) => {
               if (e.currentTarget.files) {
-                dispatch( setFile(e.currentTarget.files[0]) );
+                checkFile( e.currentTarget.files[0] );
               }
             }}
           />

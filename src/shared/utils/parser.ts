@@ -18,10 +18,7 @@ export class YMLParser {
   }
 
   hasCorrectType() {
-    return (this.file) ? (
-      (this.file.type === "text/xml") ||
-      (this.file.type === "text/plain")
-    ) : false;
+    return (this.file) ? this.file.type === "text/xml" : false;
   }
 
   async xml2obj() {}
