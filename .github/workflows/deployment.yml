@@ -46,4 +46,6 @@ jobs:
           MINI_APPS_ENVIRONMENT: dev
           MINI_APPS_ACCESS_TOKEN: ${{ secrets.VKMA_ACCESS_TOKEN }}
         run: |
-          echo "${{ env.MINI_APPS_ACCESS_TOKEN }}"
+          env MINI_APPS_ENVIRONMENT="${{ env.MINI_APPS_ENVIRONMENT }}"
+          env MINI_APPS_ACCESS_TOKEN="${{ env.MINI_APPS_ACCESS_TOKEN }}"
+          npm run deploy
