@@ -1,4 +1,4 @@
-import { Group, NavIdProps, Panel, Spacing, Separator } from '@vkontakte/vkui';
+import { Group, NavIdProps, Spacing, Separator } from '@vkontakte/vkui';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
@@ -6,6 +6,7 @@ import { Uploader } from '@widgets/Uploader';
 import { BaseInfo } from '@widgets/BaseInfo';
 import { setFile } from '@app/store/storageReducer';
 import { RootState } from '@app/store';
+import { ResizePanel } from '@shared/ui/resizePanel';
 
 export const Homepage = (props: NavIdProps) => {
 
@@ -20,7 +21,7 @@ export const Homepage = (props: NavIdProps) => {
   }, []);
 
   return(
-    <Panel {...props}>
+    <ResizePanel {...props}>
       <Group>
         <BaseInfo/>
 
@@ -30,6 +31,6 @@ export const Homepage = (props: NavIdProps) => {
 
         <Uploader/>
       </Group>
-    </Panel>
+    </ResizePanel>
   );
 };
