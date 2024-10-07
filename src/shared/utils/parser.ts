@@ -146,9 +146,8 @@ export class YMLParser {
           }
         }
 
-        type paramsType = { [key: string]: unknown };
-
-        const params: paramsType = {};
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const params: any = {};
         const items: XMLTransformOffer[] = [];
 
         offers.forEach((offer) => {
