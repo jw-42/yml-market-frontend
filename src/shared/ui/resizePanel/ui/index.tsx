@@ -23,7 +23,7 @@ export const ResizePanel = (props: IResizePanel) => {
           if (res) {
             bridge.send("VKWebAppResizeWindow", {
               width: 911,
-              height: panelHeight < 630 ? 630 : panelHeight > 4050 ? 4050 : panelHeight + 50
+              height: panelHeight + 50 < 630 ? 630 : panelHeight + 50 > 4050 ? 4050 : panelHeight + 50
             })
           }
         })
@@ -31,7 +31,7 @@ export const ResizePanel = (props: IResizePanel) => {
   }
 
   useEffect(() => {
-    onChangeContent();
+    setTimeout(() => onChangeContent(), 100);
   }, [ props.children ]);
 
   return(

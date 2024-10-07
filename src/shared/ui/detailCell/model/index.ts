@@ -1,6 +1,6 @@
-import { ReactElement } from "react";
+import { ReactNode } from "react";
 
 export interface IDetailCell {
   header?: string,
-  children?: ReactElement|string
+  children?: ReactNode|string
 }
