@@ -21,7 +21,11 @@ export const Homepage = (props: NavIdProps) => {
   }, []);
 
   return(
-    <ResizePanel {...props}>
+    <ResizePanel
+      {...props}
+      before={false}
+      header={'Диагностика'}
+    >
       <Group>
         <BaseInfo/>
 

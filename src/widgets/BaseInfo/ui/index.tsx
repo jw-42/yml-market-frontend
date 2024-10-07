@@ -1,11 +1,11 @@
-import { Div, DisplayTitle, Spacing, Link, Text } from "@vkontakte/vkui";
+import { Div, Headline, Spacing, Link, Text } from "@vkontakte/vkui";
 
 import baseTheme from '@vkontakte/vkui-tokens/themes/vkBase/cssVars/theme';
 
 export const BaseInfo = () => {
   return(
     <Div>
-      <DisplayTitle level="4">Подготовка к импорту</DisplayTitle>
+      <Headline weight="1">Подготовка к импорту</Headline>
 
       <Spacing size={16} />
 
