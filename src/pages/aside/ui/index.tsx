@@ -1,4 +1,4 @@
-import { Panel, Group, Div, FormStatus, Link, SimpleCell, Spacing } from '@vkontakte/vkui';
+import { Panel, Group, FormStatus, Link, SimpleCell } from '@vkontakte/vkui';
 
 export const Aside = () => {
   return(

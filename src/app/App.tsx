@@ -1,4 +1,4 @@
-import { View, SplitLayout, SplitCol, Epic, Panel, Group, SimpleCell } from '@vkontakte/vkui';
+import { View, SplitLayout, SplitCol, Epic } from '@vkontakte/vkui';
 import { useActiveVkuiLocation, useGetPanelForView, usePopout } from '@vkontakte/vk-mini-apps-router';
 
 import { VIEW, DEFAULT_VIEW, GROUPS_VIEW, HELP_VIEW } from '@app/router/model';
