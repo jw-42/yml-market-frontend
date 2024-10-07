@@ -1,5 +1,5 @@
 import { QualifiedAttribute, QualifiedTag, SAXParser } from 'sax';
-import { XMLAttribute, XMLElement, XMLParam, XMLTransformOffer, XMLValidator } from '@shared/types/parser';
+import { XMLAttribute, XMLElement, XMLTransformOffer, XMLValidator } from '@shared/types/parser';
 import { YMLParserConsts } from '@shared/consts/validator.config';
 
 export class YMLParser {
@@ -29,12 +29,12 @@ export class YMLParser {
     return new Promise<XMLElement>((resolve, reject) => {
       const parser = new SAXParser(true, { trim: true, normalize: true });
 
-      let xmlArray: XMLElement[] = [];
-      let stack: XMLElement[] = [];
+      const xmlArray: XMLElement[] = [];
+      const stack: XMLElement[] = [];
       let currentAttributes: XMLAttribute[] = [];
 
       parser.onopentag = (tag: QualifiedTag) => {
-        let obj: XMLElement = {
+        const obj: XMLElement = {
           name: tag.name,
           attributes: currentAttributes,
           children: []
@@ -43,7 +43,7 @@ export class YMLParser {
         if (stack.length === 0) {
           xmlArray.push(obj);
         } else {
-          let parent = stack[stack.length - 1];
+          const parent = stack[stack.length - 1];
           parent.children.push(obj);
         }
 
@@ -53,8 +53,8 @@ export class YMLParser {
 
       parser.ontext = (text: string) => {
         if (stack.length > 0) {
-            let parent = stack[stack.length - 1];
-            parent.text = text;
+          const parent = stack[stack.length - 1];
+          parent.text = text;
         }
       }
 
@@ -114,8 +114,8 @@ export class YMLParser {
 
   async validate(obj: XMLElement, extended: boolean = false) {
     return new Promise<XMLValidator>((resolve, reject) => {
-      let waitList: XMLElement[] = [obj];
-      let offers: XMLElement[] = [];
+      const waitList: XMLElement[] = [obj];
+      const offers: XMLElement[] = [];
 
       let currentElement: XMLElement;
 
@@ -134,7 +134,7 @@ export class YMLParser {
       }
 
       if (offers.length) {
-        let validator: XMLValidator = {
+        const validator: XMLValidator = {
           offers: {
             count: offers.length,
             available: 0,
@@ -146,12 +146,14 @@ export class YMLParser {
           }
         }
 
-        let params: any = {};
-        let items: XMLTransformOffer[] = [];
+        type paramsType = { [key: string]: unknown };
+
+        const params: paramsType = {};
+        const items: XMLTransformOffer[] = [];
 
         offers.forEach((offer) => {
           let offerId: string|undefined = undefined;
-          let transformOffer: XMLTransformOffer = {
+          const transformOffer: XMLTransformOffer = {
             id: undefined,
             name: undefined,
             description: undefined,
@@ -177,7 +179,7 @@ export class YMLParser {
 
           if (offerId) {
             let name, description, picture, price: boolean = false;
-            let picturesList: string[] = [];
+            const picturesList: string[] = [];
             let paramsList: string[] = [];
 
             offer.children.forEach((tag) => {
@@ -235,7 +237,7 @@ export class YMLParser {
                       if (attr.value.toString() in params) {
                         let find: boolean = false;
 
-                        for (let key in params[attr.value.toString()]) {
+                        for (const key in params[attr.value.toString()]) {
                           if (params[attr.value.toString()][key] === tag.text) {
                             find = true;
                           }
@@ -347,7 +349,7 @@ export class YMLParser {
           validator.items = items;
         }
 
-        for (let key in params) {
+        for (const key in params) {
           if (params[key].length > YMLParserConsts.maxPropertyValues) {
             if (validator.offers.options.param.maximumValuesForProperty) {
               validator.offers.options.param.maximumValuesForProperty.push(key);
