@@ -7,6 +7,7 @@ import { Homepage } from '@pages/homepage';
 import { Detail } from '@pages/detail';
 import { Communities } from '@pages/communities';
 import { Help } from '@pages/help';
+import { Aside } from '@pages/aside/ui';
 
 export const App = () => {
 
@@ -35,13 +36,7 @@ export const App = () => {
       </SplitCol>
 
       <SplitCol fixed width={345} maxWidth={345}>
-        <Panel>
-          <Group>
-            <SimpleCell onClick={() => {}}>SimpleCell</SimpleCell>
-            <SimpleCell onClick={() => {}}>SimpleCell</SimpleCell>
-            <SimpleCell onClick={() => {}}>SimpleCell</SimpleCell>
-          </Group>
-        </Panel>
+        <Aside/>
       </SplitCol>
     </SplitLayout>
   );
