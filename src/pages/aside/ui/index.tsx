@@ -1,3 +1,4 @@
+import { Icon24Download } from '@vkontakte/icons';
 import { Panel, Group, FormStatus, Link, SimpleCell } from '@vkontakte/vkui';
 
 export const Aside = () => {
@@ -5,13 +6,11 @@ export const Aside = () => {
     <Panel>
       <Group>
         <SimpleCell>Диагностика</SimpleCell>
-        <SimpleCell disabled>Сообщества</SimpleCell>
-        <SimpleCell disabled>Вопросы и ответы</SimpleCell>
-      </Group>
-
-      <Group>
         <SimpleCell disabled>Подробнее о формате</SimpleCell>
-        <SimpleCell disabled>Скачать пример файла</SimpleCell>
+        <SimpleCell
+          disabled
+          after={<Icon24Download/>}
+        >Скачать пример файла</SimpleCell>
       </Group>
 
       <Group>
