@@ -1,6 +1,6 @@
 export interface XMLValidator {
   categories?: XMLCategory[],
-  offers: XMLOffer[],
+  offers: XMLSummary,
   items?: XMLTransformOffer[]
 }
 
@@ -9,17 +9,31 @@ export interface XMLCategory {
   value: string
 }
 
-export interface XMLOffer {
+export interface XMLSummary {
   count: number,
   available: number,
   options: {
-    main: {
-      name?: string,
-      description?: string,
-      picture?: string,
-      price?: string,
-    },
+    main: XMLSummaryMainOptions,
+    param: XMLSummaryParamsOptions,
+    picture: XMLSummaryPicturesOptions
   }
+}
+
+export interface XMLSummaryMainOptions {
+  name?: string[],
+  description?: string[],
+  picture?: string[],
+  price?: string[],
+}
+
+export interface XMLSummaryParamsOptions {
+  lotsOfProperties?: string[],
+  maximumValuesForProperty?: string[]
+}
+
+export interface XMLSummaryPicturesOptions {
+  lotsOfPictures?: string[],
+  wrongSize?: string[]
 }
 
 export interface XMLElement {
@@ -32,10 +46,10 @@ export interface XMLElement {
 export interface XMLTransformOffer {
   id?: string,
   group_id?: string,
-  name: string,
-  description: string,
-  price: number,
-  pictures: string[],
+  name?: string,
+  description?: string,
+  price?: number,
+  pictures?: string[],
   params?: XMLParam[]
 }
 
