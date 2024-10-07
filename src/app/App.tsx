@@ -7,7 +7,7 @@ import { Homepage } from '@pages/homepage';
 import { Detail } from '@pages/detail';
 import { Communities } from '@pages/communities';
 import { Help } from '@pages/help';
-import { Aside } from '@pages/aside/ui';
+import { Aside } from '@pages/aside';
 
 export const App = () => {
 
