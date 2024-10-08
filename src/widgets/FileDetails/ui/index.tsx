@@ -9,8 +9,12 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import baseTheme from '@vkontakte/vkui-tokens/themes/vkBase/cssVars/theme';
+import { useRouteNavigator } from '@vkontakte/vk-mini-apps-router';
+import { AppRoutes } from '@app/router';
 
 export const FileDetails = () => {
+
+  const router = useRouteNavigator();
 
   const [result, setResult] = useState<XMLValidator|null>(null);
 
@@ -171,6 +175,7 @@ export const FileDetails = () => {
           size='m'
           stretched
           mode='secondary'
+          onClick={() => router.push(AppRoutes.default.homepage)}
         >
           Вернуться к загрузке
         </Button>
