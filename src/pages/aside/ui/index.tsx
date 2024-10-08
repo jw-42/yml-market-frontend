@@ -7,7 +7,8 @@ export const Aside = () => {
       <Group>
         <SimpleCell>Диагностика</SimpleCell>
 
-        <SimpleCell 
+        <SimpleCell
+          target='_blank'
           href='https://vk.cc/com8RL'
         >Подробнее о формате</SimpleCell>
 
