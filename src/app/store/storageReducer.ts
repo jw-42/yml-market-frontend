@@ -25,7 +25,8 @@ export const storageSlice = createSlice({
 
 export const {
   setFile,
-  setUploadStatus
+  setUploadStatus,
+  setResultData
 } = storageSlice.actions;
 
 export default storageSlice.reducer;

@@ -25,8 +25,8 @@ export class YMLParser {
     return (this.file) ? this.file.type === "text/xml" : false;
   }
 
-  xml2obj() {
-    return new Promise<XMLElement>((resolve, reject) => {
+  async xml2obj() {
+    return new Promise<XMLElement>(async (resolve, reject) => {
       const parser = new SAXParser(true, { trim: true, normalize: true });
 
       const xmlArray: XMLElement[] = [];
@@ -113,7 +113,7 @@ export class YMLParser {
   }
 
   async validate(obj: XMLElement, extended: boolean = false) {
-    return new Promise<XMLValidator>((resolve, reject) => {
+    return new Promise<XMLValidator>(async (resolve, reject) => {
       const waitList: XMLElement[] = [obj];
       const offers: XMLElement[] = [];
 

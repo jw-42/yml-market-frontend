@@ -4,7 +4,7 @@ import { Icon56DocumentOutline } from '@vkontakte/icons';
 import { useDispatch } from 'react-redux';
 
 import { AppRoutes } from '@app/router';
-import { setFile, setUploadStatus } from '@app/store/storageReducer';
+import { setFile, setResultData, setUploadStatus } from '@app/store/storageReducer';
 import { YMLParser } from '@shared/utils';
 
 import baseTheme from '@vkontakte/vkui-tokens/themes/vkBase/cssVars/theme';
@@ -34,8 +34,22 @@ export const UploadDropZone = () => {
         })
       );
     } else {
-      dispatch( setFile(_file) );
-      router.push(AppRoutes.default.detail);
+      try {
+        dispatch( setFile(_file) );
+        router.push(AppRoutes.default.detail);
+
+        parser.xml2obj()
+          .then(async (obj) => {
+            parser.validate(obj)
+              .then((result) => {
+                dispatch( setResultData(result) );
+              })
+              .catch((e) => { throw new Error(e) })
+          })
+          .catch((e) => { throw new Error(e) })
+      } catch (e) {
+        console.error(e);
+      }
     }
   }
 

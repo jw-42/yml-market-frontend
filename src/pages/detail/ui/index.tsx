@@ -18,6 +18,7 @@ export const Detail = (props: NavIdProps) => {
 
   useEffect(() => {
     if (!currentFile) {
+      console.log("currentFile", currentFile)
       void router.push(AppRoutes.default.homepage);
     }
   }, [ currentFile ]);

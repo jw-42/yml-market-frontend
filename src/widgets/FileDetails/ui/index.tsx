@@ -1,11 +1,9 @@
 import { RootState } from '@app/store';
-import { XMLValidator } from '@shared/types/parser';
 import { DetailCell } from '@shared/ui/detailCell';
 import { DetailLayoutGroup } from '@shared/ui/detailLayoutGroup';
-import { wordForm, YMLParser } from '@shared/utils';
+import { wordForm } from '@shared/utils';
 import { Icon24DoneOutline, Icon24WarningTriangleOutline } from '@vkontakte/icons';
 import { Group, Header, Spacing, Separator, Div, Button, SimpleCell } from '@vkontakte/vkui';
-import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import baseTheme from '@vkontakte/vkui-tokens/themes/vkBase/cssVars/theme';
@@ -16,22 +14,7 @@ export const FileDetails = () => {
 
   const router = useRouteNavigator();
 
-  const [result, setResult] = useState<XMLValidator|null>(null);
-
-  const { currentFile } = useSelector((state: RootState) => state.storage);
-
-  useEffect(() => {
-    if (currentFile) {
-      const parser = new YMLParser(currentFile);
-      
-      parser.xml2obj()
-        .then((res) => {
-          parser.validate(res)
-            .then((validationResponse) => setResult(validationResponse))
-        })
-        .catch((error) => console.error(error))
-    }
-  }, [ currentFile ]);
+  const { result } = useSelector((state: RootState) => state.storage);
 
   return(
     <Group header={
