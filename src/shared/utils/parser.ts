@@ -349,7 +349,7 @@ export class YMLParser {
         }
 
         for (const key in params) {
-          if (params[key].length > YMLParserConsts.maxPropertyValues) {
+          if (params[key]?.length > YMLParserConsts.maxPropertyValues) {
             if (validator.offers.options.param.maximumValuesForProperty) {
               validator.offers.options.param.maximumValuesForProperty.push(key);
             } else {
