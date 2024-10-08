@@ -6,10 +6,16 @@ export const Aside = () => {
     <Panel>
       <Group>
         <SimpleCell>Диагностика</SimpleCell>
-        <SimpleCell disabled>Подробнее о формате</SimpleCell>
+
+        <SimpleCell 
+          href='https://vk.cc/com8RL'
+        >Подробнее о формате</SimpleCell>
+
         <SimpleCell
-          disabled
+          download
+          target='_blank'
           after={<Icon24Download/>}
+          href='/public/Пример%20файла.xml'
         >Скачать пример файла</SimpleCell>
       </Group>
 
