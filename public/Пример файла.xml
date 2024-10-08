@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<yml_catalog date="2021-04-01 12:20">
+  <shop>
+    <name>vk.com</name>
+    <company>vk.com</company>
+    <url>https://vk.com/</url>
+    <currencies>
+      <currency id="RUB" rate="1"/>
+    </currencies>
+    <categories>
+      <category id="1">Стикеры</category>
+      <category id="2">Стикеры котики</category>
+      <category id="3">Стикеры пёсики</category>
+    </categories>
+    <offers>
+      <offer id="3012845391-1">
+        <price>25</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>1</categoryId>
+        <count>0</count>
+        <name>Цветной персик</name>
+        <description>Этот яркий и смелый кот отлично дополнит любое ваше сообщение</description>
+        <param name="Цвет">Цветной</param>
+        <picture>https://vk.com/sticker/66/512.png</picture>
+      </offer>
+      <offer id="3012845391-2" group_id="3012845391">
+        <price>11</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>1</categoryId>
+        <categoryId>2</categoryId>
+        <name>Серый персик</name>
+        <description>Этот серый и смелый кот отлично дополнит любое ваше сообщение</description>
+        <param name="Цвет">Серый</param>
+        <picture>https://vk.com/sticker/51635/512.png</picture>
+      </offer>
+      <offer id="3012845394" available="false">
+        <price>11</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>1</categoryId>
+        <categoryId>3</categoryId>
+        <name>Спотти</name>
+        <description>Этот яркий и смелый пёс отлично дополнит любое ваше сообщение</description>
+        <picture>https://vk.com/sticker/19633/512.png</picture>
+      </offer>
+      <offer id="3012845397" available="true">
+        <price>11</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>1</categoryId>
+        <categoryId>3</categoryId>
+        <name>Маффин</name>
+        <description>Этот милый и добрый пёс отлично дополнит любое ваше сообщение</description>
+        <picture>https://vk.com/sticker/71941/512.png</picture>
+      </offer>
+    </offers>
+  </shop>
+</yml_catalog>
