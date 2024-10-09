@@ -14,6 +14,9 @@ export const DetailModal = (props: NavIdProps) => {
         {(params?.type === 'description') && ('Описание товаров')}
         {(params?.type === 'pictures') && ('Изображения товаров')}
         {(params?.type === 'price') && ('Стоимость товаров')}
+
+        {(params?.type === 'lotsOfProperties') && ('Параметры')}
+        {(params?.type === 'maximumValuesForProperty') && ('Параметры')}
       </ModalPageHeader>
     }>
       {(params?.type === 'name') && (<DetailSection.DetailName/>)}
