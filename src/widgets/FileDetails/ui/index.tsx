@@ -58,7 +58,7 @@ export const FileDetails = () => {
         <SimpleCell
           subtitle={
             result?.offers.options.main.description?.length ? (
-              `${wordForm(result.offers.options.main.description.length, 'товар', 'товара', 'товаров')} без описания`
+              `Мы нашли ошибки в описании ${wordForm(result.offers.options.main.description.length, 'товара', 'товаров', 'товаров')}.`
             ) : undefined
           }
           after={

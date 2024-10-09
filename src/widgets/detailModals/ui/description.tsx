@@ -22,9 +22,9 @@ export const DetailDescription = () => {
               <Icon24DoneOutline/>
           }
           subtitle={result?.offers.options.main.description?.length ? (
-            `Мы нашли ${wordForm(result.offers.options.main.description.length, 'товар', 'товара', 'товаров')} без описания.`
+            `Мы нашли ошибки в описании ${wordForm(result.offers.options.main.description.length, 'товара', 'товаров', 'товаров')}.`
           ) : (
-            `Мы не нашли ошибок, связанных с описанием товаров.`
+            `Мы не нашли ошибок в описании товаров.`
           )}
         >
           Описание товаров
