@@ -1,1 +1,1 @@
-export { UploadInputURL, UploadDropZone } from './ui';
+export { UploadDropZone } from './ui';
