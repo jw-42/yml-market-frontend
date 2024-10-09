@@ -1,14 +1,15 @@
-import { RootState } from '@app/store';
-import { DetailCell } from '@shared/ui/detailCell';
-import { DetailLayoutGroup } from '@shared/ui/detailLayoutGroup';
-import { wordForm } from '@shared/utils';
+import { useRouteNavigator } from '@vkontakte/vk-mini-apps-router';
 import { Icon24DoneOutline, Icon24WarningTriangleOutline } from '@vkontakte/icons';
 import { Group, Header, Spacing, Separator, Div, Button, SimpleCell } from '@vkontakte/vkui';
 import { useSelector } from 'react-redux';
 
-import baseTheme from '@vkontakte/vkui-tokens/themes/vkBase/cssVars/theme';
-import { useRouteNavigator } from '@vkontakte/vk-mini-apps-router';
+import { RootState } from '@app/store';
+import { DetailCell } from '@shared/ui/detailCell';
+import { DetailLayoutGroup } from '@shared/ui/detailLayoutGroup';
+import { wordForm } from '@shared/utils';
 import { AppRoutes } from '@app/router';
+
+import baseTheme from '@vkontakte/vkui-tokens/themes/vkBase/cssVars/theme';
 
 export const FileDetails = () => {
 
@@ -45,6 +46,7 @@ export const FileDetails = () => {
               <Icon24WarningTriangleOutline color={baseTheme.colorIconWarning.normal.value} /> :
               <Icon24DoneOutline/>
           }
+          onClick={() => router.push(AppRoutes.default.detail.detail, { type: 'name' })}
         >
           Названия товаров
         </SimpleCell>
@@ -64,6 +66,7 @@ export const FileDetails = () => {
               <Icon24WarningTriangleOutline color={baseTheme.colorIconWarning.normal.value} /> :
               <Icon24DoneOutline/>
           }
+          onClick={() => router.push(AppRoutes.default.detail.detail, { type: 'description' })}
         >
           Описание товаров
         </SimpleCell>
@@ -85,6 +88,7 @@ export const FileDetails = () => {
               <Icon24WarningTriangleOutline color={baseTheme.colorIconWarning.normal.value} /> :
               <Icon24DoneOutline/>
           }
+          onClick={() => router.push(AppRoutes.default.detail.detail, { type: 'pictures' })}
         >
           Изображения товаров
         </SimpleCell>
@@ -104,6 +108,7 @@ export const FileDetails = () => {
               <Icon24WarningTriangleOutline color={baseTheme.colorIconWarning.normal.value} /> :
               <Icon24DoneOutline/>
           }
+          onClick={() => router.push(AppRoutes.default.detail.detail, { type: 'price' })}
         >
           Стоимость товаров
         </SimpleCell>
@@ -127,6 +132,7 @@ export const FileDetails = () => {
               <Icon24WarningTriangleOutline color={baseTheme.colorIconWarning.normal.value} /> :
               <Icon24DoneOutline/>
           }
+          onClick={() => router.push(AppRoutes.default.detail.detail, { type: 'lotsOfProperties' })}
         >
           Не более 2-х свойств на товар
         </SimpleCell>
@@ -146,6 +152,7 @@ export const FileDetails = () => {
               <Icon24WarningTriangleOutline color={baseTheme.colorIconWarning.normal.value} /> :
               <Icon24DoneOutline/>
           }
+          onClick={() => router.push(AppRoutes.default.detail.detail, { type: 'maximumValuesForProperty' })}
         >
           Не более 50-ти значений на свойство
         </SimpleCell>

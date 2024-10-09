@@ -13,7 +13,7 @@ export const AppRoutes = RoutesConfig.create([
   createView(VIEW.DEFAULT, [
     createPanel(DEFAULT_VIEW.HOMEPAGE, "/"),
     createPanel(DEFAULT_VIEW.DETAIL, "/detail", [
-      createModal(MODALS.DETAIL, "/detail/:section", ["section"] as const)
+      createModal(MODALS.DETAIL, "/detail/:type", ["type"] as const)
     ])
   ]),
   createView(VIEW.GROUPS, [
