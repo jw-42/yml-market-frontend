@@ -1,23 +1,45 @@
-import { Icon24Download } from '@vkontakte/icons';
+import { Icon24BugOutline, Icon24DocumentListOutline, Icon24LifebuoyOutline, Icon24Users3Outline } from '@vkontakte/icons';
 import { Panel, Group, FormStatus, Link, SimpleCell } from '@vkontakte/vkui';
+import { useRouteNavigator } from '@vkontakte/vk-mini-apps-router';
+import { AppRoutes } from '@app/router';
 
 export const Aside = () => {
+
+  const router = useRouteNavigator();
+
   return(
     <Panel>
       <Group>
-        <SimpleCell>Диагностика</SimpleCell>
+        <SimpleCell
+          before={<Icon24BugOutline/>}
+          onClick={() => router.push(AppRoutes.default.homepage)}
+        >
+          Диагностика
+        </SimpleCell>
 
+        <SimpleCell
+          before={<Icon24Users3Outline/>}
+          onClick={() => router.push(AppRoutes.groups.default)}
+        >
+          Мои сообщества
+        </SimpleCell>
+
+        <SimpleCell
+          before={<Icon24LifebuoyOutline/>}
+          onClick={() => router.push(AppRoutes.help.default)}
+        >
+          Вопросы и ответы
+        </SimpleCell>
+      </Group>
+
+      <Group>
         <SimpleCell
           target='_blank'
           href='https://vk.cc/com8RL'
-        >Подробнее о формате</SimpleCell>
-
-        <SimpleCell
-          download
-          target='_blank'
-          after={<Icon24Download/>}
-          href='/public/Пример%20файла.xml'
-        >Скачать пример файла</SimpleCell>
+          before={<Icon24DocumentListOutline/>}
+        >
+          Подробнее о YML
+        </SimpleCell>
       </Group>
 
       <Group>
