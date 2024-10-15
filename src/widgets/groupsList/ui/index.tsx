@@ -117,9 +117,7 @@ export const GroupsList = () => {
           (canView === false) ? (
             <Placeholder
               action={
-                <Button
-                  onClick={() => {}}
-                >
+                <Button onClick={handleGetGroups}>
                   Разрешить
                 </Button>
               }
