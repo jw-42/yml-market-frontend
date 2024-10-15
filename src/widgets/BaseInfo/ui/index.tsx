@@ -14,7 +14,7 @@ export const BaseInfo = () => {
         Пример файла можно скачать <Link
           download
           target='_blank'
-          href='/public/Пример%20файла.xml'
+          href='https://vk.com/doc-195351530_679535784?hash=2zMI8zzqbwV7CHlbndlpfSCSQ67K0cQ9veHysS4ydJL&dl=cEYFTeX0wnoLeE9fGSDGd9Sdi1PlkEl6ynXB5f9cEes&api=1&no_preview=1'
         >по ссылке</Link>.
       </Text>
 
