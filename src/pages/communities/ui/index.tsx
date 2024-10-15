@@ -1,14 +1,14 @@
-import { CustomPlaceholder } from '@shared/ui/customPlaceholder';
-import { Group, NavIdProps, Panel, PanelHeader } from '@vkontakte/vkui';
+import { Group, NavIdProps } from '@vkontakte/vkui';
+
+import { ResizePanel } from '@shared/ui/resizePanel';
+import { GroupsList } from '@widgets/groupsList';
 
 export const Communities = (props: NavIdProps) => {
   return(
-    <Panel {...props}>
-      <PanelHeader>Сообщества</PanelHeader>
-
+    <ResizePanel {...props} before={false} header='Сообщества'>
       <Group>
-        <CustomPlaceholder type='develop' />
+        <GroupsList/>
       </Group>
-    </Panel>
+    </ResizePanel>
   );
 }
