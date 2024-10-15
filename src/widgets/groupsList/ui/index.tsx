@@ -18,7 +18,7 @@ export const GroupsList = () => {
   const [canView, setCanView] = useState<boolean|undefined>(false);
 
   const handleGetGroups = () => {
-    bridge.send("VKWebAppGetAuthToken", { app_id: 51755627, scope: "groups" })
+    bridge.send("VKWebAppGetAuthToken", { app_id: 51782658, scope: "groups" })
       .then(({access_token}) => {
         setCanView(true);
 
