@@ -234,18 +234,10 @@ export class YMLParser {
                   tag.attributes.forEach((attr: XMLAttribute) => {
                     if (attr.name === "name" && attr.value) {
                       if (attr.value.toString() in params) {
-                        let find: boolean = false;
-
-                        for (const key in params[attr.value.toString()]) {
-                          if (params[attr.value.toString()][key] === tag.text) {
-                            find = true;
-                          }
-
-                          if (!find && attr.value) {
-                            params[attr.value.toString()] = [ tag.text ];
-                          }
+                        if(!params[attr.value.toString()].includes(tag.text)) {
+                          params[attr.value.toString()] = [...params[attr.value.toString()], tag.text];
                         }
-                      } else  if (attr.value) {
+                      } else if (attr.value) {
                         params[attr.value.toString()] = tag.text;
                       }
 
