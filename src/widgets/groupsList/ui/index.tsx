@@ -98,14 +98,6 @@ export const GroupsList = () => {
                     >
                       Открыть
                     </Button>
-
-                    <Button
-                      target={'_blank'}
-                      mode={'secondary'}
-                      aria-label='download'
-                      href={`https://vk.com/market-${club.id}?format=yml`}
-                      before={<Icon20DownloadOutline width={16} height={16} />}
-                    />
                   </ButtonGroup>
                 }
               >
