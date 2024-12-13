@@ -1,5 +1,5 @@
 import { Icon24BugOutline, Icon24DocumentListOutline, Icon24LifebuoyOutline, Icon24Users3Outline } from '@vkontakte/icons';
-import { Panel, Group, FormStatus, Link, SimpleCell } from '@vkontakte/vkui';
+import { Panel, Group, SimpleCell } from '@vkontakte/vkui';
 import { useRouteNavigator } from '@vkontakte/vk-mini-apps-router';
 import { AppRoutes } from '@app/router';
 
@@ -40,12 +40,6 @@ export const Aside = () => {
         >
           Подробнее об импорте
         </SimpleCell>
-      </Group>
-
-      <Group>
-        <FormStatus header={'Информация для тестировщиков'}>
-          Это тестовая версия приложения, она может работать некорректно. <Link target='_blank' href='https://vk.com/bugs?act=add&product=3238'>Сообщить об ошибке</Link>.
-        </FormStatus>
       </Group>
     </Panel>
   );
