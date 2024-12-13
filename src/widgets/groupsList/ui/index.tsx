@@ -2,7 +2,6 @@ import { Avatar, Button, ButtonGroup, Placeholder, Separator, SimpleCell, Spacin
 import { useEffect, useState } from 'react';
 import { GroupsListSkeleton } from './skeleton';
 import bridge from '@vkontakte/vk-bridge';
-import { Icon20DownloadOutline } from '@vkontakte/icons';
 
 interface IGroup {
   id: number,
