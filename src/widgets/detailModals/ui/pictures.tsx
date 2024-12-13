@@ -53,7 +53,7 @@ export const DetailPictures = () => {
           <SimpleCell
             multiline
             after={
-              <IconButton onClick={() => bridge.send("VKWebAppCopyText", {
+              <IconButton aria-label="copy" onClick={() => bridge.send("VKWebAppCopyText", {
                 text: `${
                   result?.offers.options.main.picture?.map((offer) => offer).join(', ')  || 
                   result?.offers.options.picture.lotsOfPictures?.map((offer) => offer).join(', ')

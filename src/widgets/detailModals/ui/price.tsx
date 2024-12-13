@@ -37,7 +37,7 @@ export const DetailPrice = () => {
           <SimpleCell
             multiline
             after={
-              <IconButton onClick={() => bridge.send("VKWebAppCopyText", { text: `${result?.offers.options.main.price?.map((offer) => offer).join(', ')}` })}>
+              <IconButton aria-label="copy" onClick={() => bridge.send("VKWebAppCopyText", { text: `${result?.offers.options.main.price?.map((offer) => offer).join(', ')}` })}>
                 <Icon24CopyOutline/>
               </IconButton>
             }

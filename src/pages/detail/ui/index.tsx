@@ -29,7 +29,7 @@ export const Detail = (props: NavIdProps) => {
         <DetailLayoutGroup>
           <DetailCell
             header='Имя файла'
-            children={currentFile ? currentFile.name : undefined}
+            children={currentFile ? currentFile.name.slice(0, 30) : undefined}
           />
 
           <DetailCell
