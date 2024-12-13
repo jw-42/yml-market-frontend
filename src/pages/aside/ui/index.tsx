@@ -35,16 +35,16 @@ export const Aside = () => {
       <Group>
         <SimpleCell
           target='_blank'
-          href='https://vk.cc/com8RL'
+          href='https://vk.com/faq21697'
           before={<Icon24DocumentListOutline/>}
         >
-          Подробнее о YML
+          Подробнее об импорте
         </SimpleCell>
       </Group>
 
       <Group>
         <FormStatus header={'Информация для тестировщиков'}>
-          Это тестовая версия приложения, она может работать некорректно. <Link target='_blank' href='https://vk.me/jw'>Сообщить об ошибке</Link>.
+          Это тестовая версия приложения, она может работать некорректно. <Link target='_blank' href='https://vk.com/bugs?act=add&product=3238'>Сообщить об ошибке</Link>.
         </FormStatus>
       </Group>
     </Panel>

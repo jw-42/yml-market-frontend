@@ -18,7 +18,6 @@ export const Detail = (props: NavIdProps) => {
 
   useEffect(() => {
     if (!currentFile) {
-      console.log("currentFile", currentFile)
       void router.push(AppRoutes.default.homepage);
     }
   }, [ currentFile ]);
@@ -29,7 +28,7 @@ export const Detail = (props: NavIdProps) => {
         <DetailLayoutGroup>
           <DetailCell
             header='Имя файла'
-            children={currentFile ? currentFile.name : undefined}
+            children={currentFile ? currentFile.name.slice(0, 30) : undefined}
           />
 
           <DetailCell

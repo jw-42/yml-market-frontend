@@ -37,7 +37,7 @@ export const DetailLotsOfProperties = () => {
           <SimpleCell
             multiline
             after={
-              <IconButton onClick={() => bridge.send("VKWebAppCopyText", { text: `${result?.offers.options.param.lotsOfProperties?.map((offer) => offer).join(', ')}` })}>
+              <IconButton aria-label="copy" onClick={() => bridge.send("VKWebAppCopyText", { text: `${result?.offers.options.param.lotsOfProperties?.map((offer) => offer).join(', ')}` })}>
                 <Icon24CopyOutline/>
               </IconButton>
             }
