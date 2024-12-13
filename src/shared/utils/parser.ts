@@ -187,7 +187,7 @@ export class YMLParser {
                   if (
                     tag.text &&
                     tag.text?.length > YMLParserConsts.offerNameMinLength && 
-                    tag.text?.length < YMLParserConsts.offerNameMaxLength
+                    tag.text?.length <= YMLParserConsts.offerNameMaxLength
                   ) {
                     name = true;
 
@@ -201,7 +201,7 @@ export class YMLParser {
                   if (
                     tag.text &&
                     tag.text?.length > YMLParserConsts.offerDescriptionMinLength && 
-                    tag.text?.length < YMLParserConsts.offerDescriptionMaxLength
+                    tag.text?.length <= YMLParserConsts.offerDescriptionMaxLength
                   ) {
                     description = true;
 
