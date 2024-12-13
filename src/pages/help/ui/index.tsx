@@ -28,7 +28,7 @@ export const Help = (props: NavIdProps) => {
           <Text>
             Этот формат используется для работы с товарами в Яндекс Маркете, но в процессе
             перекочевал и ВКонтакте. С его помощью вы можете массово импортировать товары в
-            свой магазин ВКонтакте.
+            своё сообщество.
           </Text>
         </>
       )
@@ -67,7 +67,7 @@ export const Help = (props: NavIdProps) => {
           <Spacing/>
 
           <Text>
-            Чтобы разобраться в ситуации, <Link target='_blank' href='https://vk.com/support?act=new_api'>
+            Чтобы разобраться в ситуации, <Link target='_blank' href='https://vk.com/support?act=new&from=api'>
               обратитесь
             </Link> в поддержку ВКонтакте.
           </Text>
