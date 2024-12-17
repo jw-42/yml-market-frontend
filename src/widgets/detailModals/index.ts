@@ -1,0 +1,1 @@
+export * as DetailSection from './ui';
