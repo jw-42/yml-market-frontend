@@ -1,4 +1,4 @@
-import { View, SplitLayout, SplitCol, Epic, ModalRoot } from '@vkontakte/vkui';
+import { View, SplitLayout, SplitCol, Epic, ModalRoot, usePlatform, Platform } from '@vkontakte/vkui';
 import { useActiveVkuiLocation, useGetPanelForView, usePopout, useRouteNavigator } from '@vkontakte/vk-mini-apps-router';
 import { useEffect } from 'react';
 
@@ -11,11 +11,15 @@ import { Help } from '@pages/help';
 import { Aside } from '@pages/aside';
 import { ModalsPage } from '@pages/modals';
 import { onboarding } from '@shared/utils/onboarding';
+import { EpicTabbar } from '@widgets/EpicTabbar';
 
 export const App = () => {
 
   const popout = usePopout();
   const router = useRouteNavigator();
+  
+  const platform = usePlatform();
+  const isVKCOM = Platform.VKCOM === platform;
 
   const {
     view: activeView = VIEW.DEFAULT,
@@ -33,8 +37,8 @@ export const App = () => {
 
   return (
     <SplitLayout popout={popout} modal={Modals}>
-      <SplitCol autoSpaced style={{ marginLeft: 0 }}>
-        <Epic activeStory={activeView || VIEW.DEFAULT}>
+      <SplitCol autoSpaced={isVKCOM} style={{ marginLeft: 0 }}>
+        <Epic tabbar={!isVKCOM && (<EpicTabbar/>)} activeStory={activeView || VIEW.DEFAULT}>
           <View id={VIEW.DEFAULT} activePanel={activePanel || DEFAULT_VIEW.HOMEPAGE}>
             <Homepage id={DEFAULT_VIEW.HOMEPAGE} />
             <Detail id={DEFAULT_VIEW.DETAIL} />
@@ -50,9 +54,9 @@ export const App = () => {
         </Epic>
       </SplitCol>
 
-      <SplitCol fixed width={345} maxWidth={345}>
+      {isVKCOM && (<SplitCol fixed width={345} maxWidth={345}>
         <Aside/>
-      </SplitCol>
+      </SplitCol>)}
     </SplitLayout>
   );
 };
