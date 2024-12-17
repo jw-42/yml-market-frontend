@@ -1,9 +1,9 @@
-name: Deployment
+name: Deployment Prod Build
 
 on:
-  push:
+  pull_request:
     branches:
-      [ develop ]
+      [ master ]
 
 jobs:
   lint:
@@ -42,7 +42,7 @@ jobs:
 
       - name: Deploy application
         env:
-          MINI_APPS_ENVIRONMENT: dev
+          MINI_APPS_ENVIRONMENT: prod
           MINI_APPS_ACCESS_TOKEN: ${{ secrets.VKMA_ACCESS_TOKEN }}
         run: |
           env MINI_APPS_ENVIRONMENT="${{ env.MINI_APPS_ENVIRONMENT }}"
